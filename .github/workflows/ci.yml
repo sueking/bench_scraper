@@ -55,8 +55,8 @@ jobs:
       - name: Test
         uses: actions-rs/cargo@v1
         env:
-          PKG_CONFIG_PATH: ${{ matrix.pkg_config_path }}
-          OPENSSL_DIR: /usr/lib/ssl
+          OPENSSL_STATIC: 1
+          OPENSSL_DIR: /usr/local/opt/openssl@1.1
         with:
           use-cross: true
           command: test
