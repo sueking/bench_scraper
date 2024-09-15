@@ -53,10 +53,9 @@ jobs:
           override: true
           target: ${{ matrix.target }}
       - name: Install openssl
-        uses: shivansh-yadav/setup-openssl@v1
-        with:
-          openssl-version: 1.1.1
-          target: ${{ matrix.target }}
+        run: |
+          apt-get update
+          apt-get install -y openssl
       - name: Test
         uses: actions-rs/cargo@v1
         with:
