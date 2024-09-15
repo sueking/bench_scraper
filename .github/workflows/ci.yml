@@ -54,8 +54,8 @@ jobs:
           target: ${{ matrix.target }}
       - name: Install openssl
         run: |
-          apt-get update
-          apt-get install -y openssl
+          sudo apt-get update
+          sudo apt-get install -y libssl-dev
       - name: Test
         uses: actions-rs/cargo@v1
         with:
