@@ -52,12 +52,11 @@ jobs:
           profile: minimal
           override: true
           target: ${{ matrix.target }}
-      - name: Install openssl
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libssl-dev
       - name: Test
         uses: actions-rs/cargo@v1
+        env:
+          PKG_CONFIG_PATH: ${{ matrix.pkg_config_path }}
+          OPENSSL_DIR: /usr/lib/ssl
         with:
           use-cross: true
           command: test
