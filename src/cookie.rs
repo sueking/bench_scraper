@@ -96,7 +96,6 @@ impl TryFrom<Cookie> for reqwest::header::HeaderValue {
     }
 }
 
-#[cfg(feature = "reqwest")]
 impl FromIterator<Cookie> for reqwest::cookie::Jar {
     fn from_iter<I: IntoIterator<Item = Cookie>>(iter: I) -> reqwest::cookie::Jar {
         let jar = reqwest::cookie::Jar::default();
